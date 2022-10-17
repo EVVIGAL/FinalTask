@@ -23,7 +23,7 @@ public class EnemyCounter : MonoBehaviour
     private void OnEnable()
     {
         foreach(Spawner spawner in _enemySpawners)
-            spawner.isSpawned += SetEnemy;
+            spawner.IsSpawned += SetEnemy;
 
         _scoreText.text = _scoreTxt + _score.ToString();
         _lvlText.text = _lvl.ToString() + _lvlTxt;
@@ -32,7 +32,7 @@ public class EnemyCounter : MonoBehaviour
     private void OnDisable()
     {
         foreach (Spawner spawner in _enemySpawners)
-            spawner.isSpawned -= SetEnemy;
+            spawner.IsSpawned -= SetEnemy;
     }
 
     private void Update()
@@ -44,7 +44,7 @@ public class EnemyCounter : MonoBehaviour
     {
         if (enemy.TryGetComponent(out Enemy enemy1))
         {
-            enemy1.isInactive += DestroyCounter;
+            enemy1.WasDeactivated += DestroyCounter;
         }
     }
 
@@ -57,7 +57,7 @@ public class EnemyCounter : MonoBehaviour
 
         if (enemy.TryGetComponent(out Enemy enemy1))
         {
-            enemy1.isInactive -= DestroyCounter;
+            enemy1.WasDeactivated -= DestroyCounter;
         }
     }
 

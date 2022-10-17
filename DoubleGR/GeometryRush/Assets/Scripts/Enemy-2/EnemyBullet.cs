@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -10,12 +8,10 @@ public class EnemyBullet : MonoBehaviour
     [SerializeField] private float _damage;
 
     private Rigidbody2D _rigidBody;
-    private Player _target;
 
     private void OnEnable()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
-        _target = FindObjectOfType<Player>();
     }
 
     private void OnBecameInvisible()

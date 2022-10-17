@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,7 +10,7 @@ public class Spawner : Pool
     [SerializeField] private float _lvlUpHealth;
     [SerializeField] private float _lvlUpSpeed;
 
-    public event UnityAction<GameObject> isSpawned;
+    public event UnityAction<GameObject> IsSpawned;
 
     private int _numObjects = 1;
     private float _radius = 12f;
@@ -32,15 +30,15 @@ public class Spawner : Pool
 
         if (_spawnDelay <= 0 && _player.isActiveAndEnabled)
         {
-            for(int i=0; i< _numObjects; i++)
+            for (int i = 0; i < _numObjects; i++)
             {
                 if (TryGetObject(out GameObject enemy))
                 {
                     Spawn(enemy);
-                    isSpawned?.Invoke(enemy);
+                    IsSpawned?.Invoke(enemy);
                     _spawnDelay = _timeBtwSpawn;
                 }
-            }          
+            }
         }
     }
 

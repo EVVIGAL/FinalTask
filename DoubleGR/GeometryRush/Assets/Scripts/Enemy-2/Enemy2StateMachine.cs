@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy2StateMachine : MonoBehaviour
@@ -13,7 +11,7 @@ public class Enemy2StateMachine : MonoBehaviour
 
     private void OnEnable()
     {
-        _target = FindObjectOfType<Player>();
+        _target = GetComponentInParent<Spawner>().Player;
         Reset(_firstState);
     }
 
@@ -27,13 +25,18 @@ public class Enemy2StateMachine : MonoBehaviour
 
     private void Update()
     {
-        if (_currentState == null) 
+        if (_currentState == null)
             return;
 
         var nextState = _currentState.GetNextState();
 
-        if(nextState != null)
+        if (nextState != null)
             Transit(nextState);
+    }
+
+    public void SetTarget(Player target)
+    {
+        _target = target;
     }
 
     private void Reset(State startState)

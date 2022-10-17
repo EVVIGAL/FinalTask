@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,7 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _health;
     [SerializeField] private int _value;
 
-    public event UnityAction<GameObject, int> isInactive;
+    public event UnityAction<GameObject, int> WasDeactivated;
 
     private float _currentHealth;
 
@@ -21,7 +19,7 @@ public class Enemy : MonoBehaviour
 
     private void OnDisable()
     {
-        isInactive?.Invoke(this.gameObject, _value);
+        WasDeactivated?.Invoke(this.gameObject, _value);
     }
 
     private void Update()

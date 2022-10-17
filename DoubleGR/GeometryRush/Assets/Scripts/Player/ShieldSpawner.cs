@@ -27,7 +27,7 @@ public class ShieldSpawner : MonoBehaviour
         {
             if (_currentPointCount < _spawnPoints.Count)
             {
-                Instantiate(_shield, _spawnPoints[_currentPointCount].position, Quaternion.identity);
+                Instantiate(_shield, _spawnPoints[_currentPointCount].position, Quaternion.identity).SetCenter(gameObject);
                 _currentPointCount++;
                 _moneyCounter.SpendMoney(_shieldCost);
                 _shieldCost += _increaseOfShieldCost;

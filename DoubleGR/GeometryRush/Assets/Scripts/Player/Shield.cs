@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
@@ -12,6 +10,8 @@ public class Shield : MonoBehaviour
 
     private string _methodName = "ReActivate";
 
+    public GameObject Center { get; private set; }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Enemy enemy))
@@ -21,6 +21,11 @@ public class Shield : MonoBehaviour
             Instantiate(_particles, transform.position, Quaternion.identity);
             Invoke(_methodName, _rebirthTime);
         }
+    }
+
+    public void SetCenter(GameObject center)
+    {
+        Center = center;
     }
 
     private void ReActivate()

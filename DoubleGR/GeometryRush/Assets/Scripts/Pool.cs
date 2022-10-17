@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -13,6 +12,8 @@ public class Pool : MonoBehaviour
     protected float _damageIncrease;
     protected float _healthIncrease;
     protected float _speedIncrease;
+
+    public Player Player => _player;
 
     public void LevelUp()
     {

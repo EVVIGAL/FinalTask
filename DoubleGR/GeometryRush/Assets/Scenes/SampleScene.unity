@@ -5424,7 +5424,7 @@ PrefabInstance:
       objectReference: {fileID: 147846749}
     - target: {fileID: 335406997338656553, guid: 463d372f3ff02ff4799af8637353af05, type: 3}
       propertyPath: _maxHealth
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 335406997338656553, guid: 463d372f3ff02ff4799af8637353af05, type: 3}
       propertyPath: _gameOverTxt
@@ -5458,6 +5458,10 @@ PrefabInstance:
       propertyPath: _moneyCounter
       value: 
       objectReference: {fileID: 609454700}
+    - target: {fileID: 335406997338656557, guid: 463d372f3ff02ff4799af8637353af05, type: 3}
+      propertyPath: _timeBtwShoot
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 335406997338656557, guid: 463d372f3ff02ff4799af8637353af05, type: 3}
       propertyPath: _damageDisplay
       value: 

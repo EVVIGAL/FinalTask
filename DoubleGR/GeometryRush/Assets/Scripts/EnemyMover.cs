@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMover : State
@@ -8,9 +6,11 @@ public class EnemyMover : State
 
     private Player _player;
 
+    public Player Player => _player;
+
     private void OnEnable()
     {
-        _player = FindObjectOfType<Player>();
+        _player = GetComponentInParent<Spawner>().Player;
 
         if (_player != null )
             LookAtPlayer();
@@ -25,6 +25,11 @@ public class EnemyMover : State
     public void LevelUp(float speedIncrease)
     {
         _speed += speedIncrease;
+    }
+
+    public void SetTarget(Player player)
+    {
+        _player = player;
     }
 
     private void LookAtPlayer()

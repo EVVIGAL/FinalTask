@@ -1,17 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShieldMover : MonoBehaviour
 {
-    [SerializeField] private Player _center;
+    [SerializeField] private GameObject _center;
     [SerializeField] private float _speed;
 
     private Vector3 _axis = new(0, 0, 1);
 
     private void Start()
     {
-        _center = FindObjectOfType<Player>();
+        if (TryGetComponent(out Shield shield))
+            _center = shield.Center;
     }
 
     private void Update()
